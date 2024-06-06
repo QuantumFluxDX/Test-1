@@ -19,7 +19,7 @@ def extract_measurements(filenames, filter_params):
             data[param] = data[param].astype('float')
 
         # Only keep rows with 5G Network Mode
-        data = data[data['NetworkMode'] == '5G']
+        # data = data[data['NetworkMode'] == '5G']
 
         # Append data to the dataframe
         dataframe.append(data)

@@ -6,12 +6,11 @@ from functions import *
 
 filepath = 'irish_dataset/'
 filenames = []
-for num in range(1,15):
+for num in range(1,14):
     filename = f"{filepath}DD{num}.csv"
     filenames.append(filename)
 
-filter_params = ['Speed', 'RSRP', 'RSRQ', 'SNR', 'CQI', 'RSSI', 'DL_bitrate'
-                 ,'NRxRSRP']
+filter_params = ['Speed','RSRQ','SNR','CQI','RSSI','DL_bitrate','UL_bitrate']
 
 #%%
 
@@ -38,6 +37,7 @@ plt.xticks(list(range(len(filter_params))),filter_params,rotation=45)
 plt.yticks(list(range(len(filter_params))),filter_params)
 plt.xlabel('Present')
 plt.ylabel('Future')
+plt.title('5s Delay')
 plt.colorbar()
 for i in range(len(filter_params)):
     for j in range(len(filter_params)):
@@ -51,6 +51,7 @@ plt.xticks(list(range(len(filter_params))),filter_params,rotation=45)
 plt.yticks(list(range(len(filter_params))),filter_params)
 plt.xlabel('Present')
 plt.ylabel('Future')
+plt.title('3s Delay')
 plt.colorbar()
 for i in range(len(filter_params)):
     for j in range(len(filter_params)):
@@ -64,9 +65,11 @@ plt.xticks(list(range(len(filter_params))),filter_params,rotation=45)
 plt.yticks(list(range(len(filter_params))),filter_params)
 plt.xlabel('Present')
 plt.ylabel('Future')
+plt.title('1s Delay')
 plt.colorbar()
 for i in range(len(filter_params)):
     for j in range(len(filter_params)):
         text = plt.text(j, i, f'{heatmap_1s[i][j]:.2f}', ha='center',
                          va='center', color='k')
 plt.savefig("heatmaps/heatmap_irish_1s.png")
+# %%
